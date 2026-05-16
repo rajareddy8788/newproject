@@ -1,0 +1,349 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sorry Minnie ❤️</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #12000f, #2b001f, #4a002f);
+      overflow-x: hidden;
+      color: white;
+      position: relative;
+    }
+
+    .hearts {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .heart {
+      position: absolute;
+      color: rgba(255, 105, 180, 0.7);
+      animation: float 8s linear infinite;
+      font-size: 20px;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+      }
+
+      50% {
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(-10vh) scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    .container {
+      position: relative;
+      z-index: 2;
+      max-width: 1300px;
+      margin: auto;
+      padding: 30px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 60px;
+    }
+
+    .logo {
+      font-size: 32px;
+      font-weight: bold;
+      color: #ff7ac6;
+      text-shadow: 0 0 15px #ff4fa3;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: 75px;
+      line-height: 1.1;
+      color: #ff7ac6;
+      text-shadow: 0 0 25px #ff4fa3;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 15px #ff4fa3;
+      }
+
+      to {
+        text-shadow: 0 0 35px #ff7ac6;
+      }
+    }
+
+    .hero-text p {
+      margin-top: 25px;
+      font-size: 22px;
+      line-height: 1.8;
+      color: #ffe3f4;
+    }
+
+    .buttons {
+      margin-top: 35px;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      padding: 16px 35px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: bold;
+      transition: 0.4s ease;
+    }
+
+    .btn-love {
+      background: linear-gradient(45deg, #ff4fa3, #ff7ac6);
+      color: white;
+      box-shadow: 0 0 25px #ff4fa3;
+    }
+
+    .btn-love:hover {
+      transform: scale(1.08);
+    }
+
+    .btn-second {
+      background: transparent;
+      border: 2px solid #ff7ac6;
+      color: #ffbde3;
+    }
+
+    .btn-second:hover {
+      background: rgba(255,255,255,0.1);
+      transform: scale(1.08);
+    }
+
+    .hero-image {
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-image img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 35px;
+      border: 5px solid #ff7ac6;
+      box-shadow: 0 0 40px rgba(255, 105, 180, 0.6);
+      animation: pulse 3s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.03);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .love-section {
+      margin-top: 90px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      backdrop-filter: blur(12px);
+      padding: 35px;
+      border-radius: 30px;
+      transition: 0.4s;
+      box-shadow: 0 0 20px rgba(255,255,255,0.08);
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 30px rgba(255,105,180,0.5);
+    }
+
+    .card h2 {
+      margin-bottom: 18px;
+      color: #ff8dd1;
+      font-size: 32px;
+    }
+
+    .card p {
+      line-height: 1.8;
+      color: #ffe7f5;
+      font-size: 18px;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 90px;
+      padding-bottom: 40px;
+    }
+
+    .footer h2 {
+      font-size: 48px;
+      color: #ff9ad9;
+      text-shadow: 0 0 20px #ff4fa3;
+      margin-bottom: 20px;
+    }
+
+    .footer p {
+      font-size: 24px;
+      color: #fff0fa;
+    }
+
+    @media(max-width: 768px) {
+      .hero-text h1 {
+        font-size: 55px;
+      }
+
+      .hero-text p {
+        font-size: 19px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="hearts" id="hearts"></div>
+
+  <div class="container">
+
+    <nav>
+      <div class="logo">❤️ Minnie & Rajareddy</div>
+    </nav>
+
+    <section class="hero">
+
+      <div class="hero-text">
+        <h1>Sorry Minnie 💖</h1>
+
+        <p>
+          Minnie, you are my happiness, my peace, and my favorite person.
+          I never wanted to hurt you.
+          Every second without your smile feels incomplete.
+          <br><br>
+          Please forgive me and give me one more chance to make you smile again.
+        </p>
+
+        <div class="buttons">
+          <button class="btn-love" onclick="showLove()">Forgive Me 🥺</button>
+          <button class="btn-second" onclick="showPromise()">One More Chance 💌</button>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <!-- Put your image in same folder and rename as couple-photo.jpg -->
+        <img src="couple-photo.png" alt="Minnie and Rajareddy">
+      </div>
+
+    </section>
+
+    <section class="love-section">
+
+      <div class="card">
+        <h2>🌹 Why I’m Sorry</h2>
+        <p>
+          I’m sorry for hurting your feelings,
+          for every misunderstanding,
+          and for every moment that made you sad.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>💖 My Love</h2>
+        <p>
+          You are my peace,
+          my happiness,
+          my motivation,
+          and my forever favorite person.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>✨ My Promise</h2>
+        <p>
+          I promise to respect you,
+          care for you,
+          support you,
+          and always stand beside you forever.
+        </p>
+      </div>
+
+    </section>
+
+    <div class="footer">
+      <h2>“Please forgive me, Minnie ❤️”</h2>
+      <p>Forever Yours, Rajareddy 💖</p>
+    </div>
+
+  </div>
+
+  <script>
+    function showLove() {
+      alert("Thank you for giving me another chance Minnie ❤️");
+    }
+
+    function showPromise() {
+      alert("I promise to always make you smile ❤️");
+    }
+
+    const hearts = document.getElementById('hearts');
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerHTML = '💖';
+
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (Math.random() * 5 + 5) + 's';
+      heart.style.fontSize = (Math.random() * 20 + 20) + 'px';
+
+      hearts.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 10000);
+    }
+
+    setInterval(createHeart, 300);
+  </script>
+
+</body>
+</html>
+```
+
